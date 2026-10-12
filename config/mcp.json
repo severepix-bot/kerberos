@@ -1,0 +1,84 @@
+{
+  "mcpServers": {
+    "arquivos-do-projeto": {
+      "command": "node",
+      "args": [
+        "${PROJECT_ROOT}/.plugins/node_modules/@modelcontextprotocol/server-filesystem/dist/index.js",
+        "${PROJECT_ROOT}"
+      ]
+    },
+    "memoria-local": {
+      "command": "node",
+      "args": [
+        "${PROJECT_ROOT}/.plugins/node_modules/@modelcontextprotocol/server-memory/dist/index.js"
+      ],
+      "env": {
+        "MEMORY_FILE_PATH": "${USER_DATA}/memory.json"
+      }
+    },
+    "terminal": {
+      "command": "${PROJECT_PYTHON}",
+      "args": ["-m", "assistente.mcp_terminal"]
+    },
+    "next-devtools": {
+      "command": "node",
+      "args": [
+        "${PROJECT_ROOT}/.plugins/node_modules/next-devtools-mcp/dist/index.js"
+      ]
+    },
+    "stripe": {
+      "url": "https://mcp.stripe.com",
+      "auth": "oauth"
+    },
+    "github": {
+      "command": "node",
+      "args": [
+        "${PROJECT_ROOT}/.plugins/node_modules/@modelcontextprotocol/server-github/dist/index.js"
+      ],
+      "requiresCommands": ["gh"],
+      "envFromCommand": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": ["gh", "auth", "token"]
+      }
+    },
+    "google-workspace": {
+      "command": "${PROJECT_PYTHON}",
+      "args": ["-m", "assistente.mcp_google_workspace"],
+      "requiresExplicitLogin": true,
+      "setupMessage": "Google Workspace requer configuração OAuth inicial. Use /mcp login google-workspace para abrir o fluxo do gws; a configuração pode criar um projeto Google Cloud e habilitar APIs. O acesso MCP só oferece operações de leitura."
+    },
+    "notebooklm": {
+      "command": "npx",
+      "args": ["--yes", "@roomi-fields/notebooklm-mcp@3.2.0"],
+      "env": {
+        "NOTEBOOKLM_PROFILE": "standard",
+        "NOTEBOOKLM_DISABLED_TOOLS": "add_notebook,update_notebook"
+      },
+      "requiresCommands": ["npx"],
+      "requiresExplicitLogin": true,
+      "setupMessage": "NotebookLM usa um servidor MCP comunitário não oficial que acessa interfaces/endpoints internos da Google e pode parar de funcionar. Peça ao agente para autenticar no NotebookLM ou use a ferramenta notebooklm_login; ela pede aprovação, inicia `npx --yes --package @roomi-fields/notebooklm-mcp@3.2.0 notebooklm-mcp-setup-auth` em um processo gerenciado e abre o login Google no navegador. Digite credenciais somente diretamente no Google e acompanhe o processo com terminal_read. Depois use `/mcp login notebooklm`. O perfil desativa adição/alteração de cadernos; cada chamada MCP ainda pede confirmação. Evite usar uma conta ou fontes confidenciais."
+    },
+    "microsoft": {
+      "command": "node",
+      "args": [
+        "${PROJECT_ROOT}/.plugins/node_modules/@microsoft/workiq/bin/workiq.js",
+        "mcp"
+      ],
+      "requiresExplicitLogin": true,
+      "requiresCommands": ["node"],
+      "setupMessage": "Microsoft Work IQ: aceite o EULA com npx -y @microsoft/workiq accept-eula; depois use /mcp login microsoft. O primeiro acesso pede consentimento Microsoft e pode exigir aprovação do administrador."
+    },
+    "cloudflare": {
+      "url": "https://mcp.cloudflare.com/mcp",
+      "auth": "oauth"
+    },
+    "apple-photos": {
+      "command": "node",
+      "args": [
+        "${PROJECT_ROOT}/.plugins/node_modules/apple-photos-mcp/build/index.js"
+      ],
+      "requiresPlatform": "darwin",
+      "requiresExplicitLogin": true,
+      "setupMessage": "Use /mcp login apple-photos para ativar explicitamente. O macOS pode pedir autorização de acesso à biblioteca Fotos ao usar uma ferramenta."
+    }
+  }
+}

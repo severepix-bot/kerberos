@@ -1,0 +1,26 @@
+[Unit]
+Description=Cerebro local AI agent service
+After=network-online.target ollama.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=cerebro
+Group=cerebro
+WorkingDirectory=/opt/cerebro
+EnvironmentFile=/etc/cerebro.env
+Environment=OLLAMA_HOST=http://127.0.0.1:11434
+Environment=ASSISTENTE_HEADLESS=1
+Environment=CEREBRO_ENABLE_DESKTOP=0
+Environment=PLAYWRIGHT_BROWSERS_PATH=/opt/cerebro/.playwright-browsers
+ExecStart=/opt/cerebro/.venv/bin/python -m assistente servidor --host 127.0.0.1 --port 8765
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/cerebro /var/lib/cerebro
+
+[Install]
+WantedBy=multi-user.target

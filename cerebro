@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+
+cd "$(dirname "$0")"
+if [ "${1:-}" = "remoto" ]; then
+  shift
+  exec python3 -m assistente remoto "$@"
+fi
+exec ./iniciar.sh "$@"

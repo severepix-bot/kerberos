@@ -1,0 +1,16 @@
+.venv/
+.hubs/
+.plugins/
+.playwright-browsers/
+__pycache__/
+*.py[cod]
+training/
+.env
+screenshots/
+runtime.sqlite3*
+.coverage
+coverage.xml
+htmlcov/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/

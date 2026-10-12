@@ -1,0 +1,75 @@
+{
+  "hubs": [
+    {
+      "name": "apple-intelligence",
+      "enabled": false,
+      "type": "apple_foundation_models",
+      "command": "swift",
+      "timeout_seconds": 300
+    },
+    {
+      "name": "openhands-local",
+      "enabled": false,
+      "type": "openai_compatible",
+      "base_url": "http://127.0.0.1:8000/v1",
+      "model": "openhands_cerebro",
+      "api_key_env": "OPENHANDS_LOCAL_API_KEY"
+    },
+    {
+      "name": "openhands-cloud",
+      "enabled": false,
+      "type": "openai_compatible",
+      "base_url": "https://YOUR_OPENHANDS_AGENT_SERVER/v1",
+      "model": "openhands_cerebro",
+      "api_key_env": "OPENHANDS_CLOUD_API_KEY"
+    },
+    {
+      "name": "openrouter",
+      "enabled": false,
+      "type": "openai_compatible",
+      "base_url": "https://openrouter.ai/api/v1",
+      "model": "YOUR_OPENROUTER_MODEL",
+      "api_key_env": "OPENROUTER_API_KEY"
+    },
+    {
+      "name": "google-gemini",
+      "enabled": false,
+      "type": "openai_compatible",
+      "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "model": "YOUR_GEMINI_MODEL",
+      "api_key_env": "GEMINI_API_KEY"
+    },
+    {
+      "name": "openai",
+      "enabled": false,
+      "type": "openai_compatible",
+      "base_url": "https://api.openai.com/v1",
+      "model": "YOUR_OPENAI_MODEL",
+      "api_key_env": "OPENAI_API_KEY"
+    },
+    {
+      "name": "github-copilot",
+      "enabled": false,
+      "type": "copilot_cli",
+      "command": "copilot",
+      "model": "auto"
+    },
+    {
+      "name": "crewai-amp",
+      "enabled": false,
+      "type": "crewai_amp",
+      "base_url": "https://YOUR_CREW_URL.crewai.com",
+      "api_key_env": "CREWAI_AMP_API_KEY",
+      "inputs": {
+        "task": "{prompt}"
+      }
+    },
+    {
+      "name": "autogen-studio",
+      "enabled": false,
+      "type": "autogen_studio",
+      "python": ".hubs/autogen/bin/python",
+      "team_config": "config/autogen-team.json"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "meu-plugin": {
+      "command": "caminho/para/o/programa",
+      "args": ["argumento"]
+    },
+    "meu-servidor-oauth": {
+      "url": "https://mcp.exemplo.com/mcp",
+      "auth": "oauth"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "provider": "ollama",
+  "name": "qwen2.5:3b",
+  "license": "Apache-2.0",
+  "download": "ollama pull qwen2.5:3b",
+  "note": "Os pesos são baixados e armazenados pelo Ollama, fora desta pasta."
+}
