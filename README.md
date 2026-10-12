@@ -299,3 +299,4 @@ Chamadas ao Ollama podem repetir até três vezes em erros transitórios de rede
 ## Acesso por celular
 
 O modelo roda no computador, não no iPhone ou Android. Um aplicativo compatível com Ollama no celular pode conectar-se ao computador pela rede local, desde que o Ollama esteja configurado para aceitar conexões remotas. Não exponha a porta do Ollama diretamente à internet: ela não oferece autenticação por padrão. A CLI e os plugins deste projeto rodam no computador.
+# kerberoscentral
